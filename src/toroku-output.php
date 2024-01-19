@@ -14,9 +14,9 @@ $pdo=new PDO($connect,USER,PASS);
 $sql=$pdo->prepare('insert into goods(name,count,category)values(?,?,?)');
 
 if(empty($_POST['name'])){
-    echo '商品名を入力してください';
+    echo '<font color="red">商品名を入力してください。</font';
 }else if(empty($_POST['category'])){
-    echo'カテゴリーを入力してください。';
+    echo'<font color="red">カテゴリーを入力してください。</font';
 }elseif($sql->execute([$_POST['name'],$_POST['count'],$_POST['category']])){
     echo '<font color="blue">追加に成功しました。</font>';
 }else{

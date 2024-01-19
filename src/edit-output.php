@@ -13,9 +13,9 @@
     $pdo=new PDO($connect, USER, PASS);
     $sql=$pdo->prepare('update goods set name=?,count=?');
     if (empty($_POST['name'])) {
-        echo '商品名を入力してください。';
+        echo '<font color="red">商品名を入力してください。</font>';
     } elseif (empty($_POST['count'])) {
-        echo '個数を入力してください。';
+        echo '<font color="red">個数を入力してください。</font>';
     }elseif($sql->execute([htmlspecialchars($_POST['name']),$_POST['count']])){
     echo '<font color="blue">更新に成功しました。</font>';
    }else{
